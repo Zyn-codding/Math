@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Matematika</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #0f0f1b, #1a1a2e);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #00ffb7;
+      letter-spacing: 2px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 255, 183, 0.3);
+    }
+
+    .soal {
+      text-align: left;
+      margin: 15px 0;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    button {
+      background-color: #00ffb7;
+      color: #000;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #0af5d0;
+    }
+
+    #hasil {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #fffb00;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>DOSEN : Z Y N</h1>
+  <h2>Latihan Soal Matematika</h2>
+
+  <div class="container">
+    <form id="quizForm">
+      <div class="soal">1. Rasio 2 : 3, jika bagian pertama 10, maka bagian kedua = <input type="text" name="q1"></div>
+      <div class="soal">2. 4 : 5 jumlah total 36, bagian ke-2 = <input type="text" name="q2"></div>
+      <div class="soal">3. Skala 1 : 200.000, jarak di peta 3 cm = ... km <input type="text" name="q3"></div>
+      <div class="soal">4. 5 buku = Rp40.000, 8 buku = ... <input type="text" name="q4"></div>
+      <div class="soal">5. 6 pekerja = 10 hari, 12 pekerja = ... hari <input type="text" name="q5"></div>
+      <div class="soal">6. Rasio 3 : 4, jumlah total 56, bagian pertama = <input type="text" name="q6"></div>
+      <div class="soal">7. 9 × 6 = <input type="text" name="q7"></div>
+      <div class="soal">8. Luas lingkaran (r = 7 cm) = ... (pakai π = 22/7) <input type="text" name="q8"></div>
+      <div class="soal">9. Jika 2 kg apel = Rp30.000, maka 5 kg apel = ... <input type="text" name="q9"></div>
+      <div class="soal">10. Skala 1 : 1000, jarak sebenarnya 5000 cm = ... cm di peta <input type="text" name="q10"></div>
+
+      <button type="button" onclick="cekJawaban()">Cek Jawaban</button>
+    </form>
+
+    <div id="hasil"></div>
+  </div>
+
+  <script>
+    function cekJawaban() {
+      const benar = ["15", "20", "6", "64000", "5", "24", "54", "154", "75000", "5"];
+      const form = document.forms["quizForm"];
+      let skor = 0;
+
+      for (let i = 0; i < benar.length; i++) {
+        const jawaban = form["q" + (i + 1)].value.trim();
+        if (jawaban === benar[i]) {
+          skor++;
+        }
+      }
+
+      document.getElementById("hasil").innerHTML =
+        `Kamu benar ${skor} dari 10 soal 🎯`;
+    }
+  </script>
+
+</body>
+</html>
